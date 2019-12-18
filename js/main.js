@@ -1,6 +1,9 @@
 'use strict'
 
 const init = () => {
+    var urlParams = new URLSearchParams(window.location.search)
+        console.log(urlParams)
+    
     initGVars()
     mapReady()
 }
@@ -88,13 +91,29 @@ const showLocation = (position) => {
     })
 }
 
-const onGo=()=>{
-    const elSearchLocation=document.querySelector('#search-location')
-    searchLocation(elSearchLocation.value).then(location=>{
+const onGo = () => {
+    const elSearchLocation = document.querySelector('#search-location')
+    searchLocation(elSearchLocation.value).then(location => {
         map.setCenter(new google.maps.LatLng(location.lat, location.lng))
         addMarker(location, map)
         setLocation(location).then(() => {
             renderLocationsTable()
         })
     })
+}
+
+const onCopyLocation = () => {
+    console.log(map.center.lat())
+    let userLocation={lat:map.center.lat(),lng:map.center.lng()}
+    copyUrl(userLocation)
+}
+
+const copyUrl=(userLocation)=>{
+    var copyText = document.getElementById("copy-text");
+    copyText.style="display:block;"
+    copyText.value=`https://giladberg.github.io/travel-tip/?lat=${userLocation.lat}&lng=${userLocation.lng}`
+    copyText.select();
+    copyText.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+    copyText.style="display:none;"
 }
