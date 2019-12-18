@@ -2,10 +2,10 @@
 
 const init = () => {
     var urlParams = new URLSearchParams(window.location.search)
-        console.log(urlParams)
-    
+        let lng =urlParams.get('lng')
+        let lat=urlParams.get('lat')   
     initGVars()
-    mapReady()
+    mapReady(lng,lat)
 }
 
 const initMap = (lat, lng) => {
@@ -103,7 +103,6 @@ const onGo = () => {
 }
 
 const onCopyLocation = () => {
-    console.log(map.center.lat())
     let userLocation={lat:map.center.lat(),lng:map.center.lng()}
     copyUrl(userLocation)
 }
@@ -111,7 +110,7 @@ const onCopyLocation = () => {
 const copyUrl=(userLocation)=>{
     var copyText = document.getElementById("copy-text");
     copyText.style="display:block;"
-    copyText.value=`https://giladberg.github.io/travel-tip/?lat=${userLocation.lat}&lng=${userLocation.lng}`
+    copyText.value=`http://127.0.0.1:5500/index.html?lat=${userLocation.lat}&lng=${userLocation.lng}`
     copyText.select();
     copyText.setSelectionRange(0, 99999)
     document.execCommand("copy");

@@ -13,8 +13,11 @@ const initGVars = () => {
 }
 
 
-const mapReady = () => {
-    initMap(29.55805, 34.94821)
+const mapReady = (lat,lng) => {
+    console.log(lat,lng)
+  
+    if(lng && lat )initMap(lat, lng)
+    else initMap(29.55805, 34.94821)
 }
 const addMarker = (location, map) => {
 
