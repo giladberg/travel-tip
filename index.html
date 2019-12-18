@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>travel-tip</title>
+</head>
+
+<body onload="init()">
+    <header class="main-header flex justify-space-between align-flex-end">
+        <div class="main-logo">TravelTip</div>
+        <nav class="main-nav flex ">
+            <div class="search-location-container flex">
+                <input type="text" id="search-location" placeholder="Enter-Location">
+                <button class="go" onclick="onGo()">GO</button>
+            </div>
+            <button class="my-location" onclick="onMylocation()">My Location</button>
+        </nav>
+    </header>
+    <main class="main flex column">
+        <div class="location-container flex justify-space-between align-center">
+            <p class="location">Location: <span class="current-location"></span></p>
+            <button class="copy-location" onclick="onCopyLocation()">Copy Location</button>
+        </div>
+        <div class="main-content flex justify-space-between">
+            <section class="left">
+                <div class="saved-location-container"></div>
+                <div class="weather-today-container"></div>
+            </section>
+            <section class="right">
+                <div id="map" style="width:300px;height:300px;"></div>
+            </section>
+        </div>
+    </main>
+    <script src="./lib/axios.js"></script>
+    <script src="./lib/swal.js"></script>
+    <script src="./js/service.js"></script>
+    <script src="./js/location-preview.js"></script>
+    <script src="./js/locations-preview.js"></script>
+    <script src="./js/main.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsAqgAOgYSK5tcvWVgrko0S1a8mJD4vgM&callback=mapReady">
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+body{
+    background-color: #f58758;
+    padding:10px;
+}
+
+
+.main-logo{
+    font-size:4rem;
+    font-weight: 700;
+}
+
+.main-nav, .main-nav>*{
+    height:50px;
+}
+
+.location{
+    font-size: 1.8rem;
+}
+
+
+
+
+/* Helpers */
+
+.flex{
+    display:flex;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.justify-center{
+    justify-content: center;
+}
+.justify-space-between{
+    justify-content: space-between;
+}
+.align-center{
+    align-items: center;
+}
+.align-flex-end{
+    align-items:flex-end
+}
